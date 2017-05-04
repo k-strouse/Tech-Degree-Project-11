@@ -1,0 +1,31 @@
+{
+  "name": "website-optimization-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^2.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k-strouse/Tech-Degree-Project-11.git"
+  },
+  "author": "Kyle Strouse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k-strouse/Tech-Degree-Project-11/issues"
+  },
+  "homepage": "https://github.com/k-strouse/Tech-Degree-Project-11#readme"
+}
