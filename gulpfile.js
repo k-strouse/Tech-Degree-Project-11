@@ -6,7 +6,8 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
 	sass = require('gulp-sass'),
 	maps = require('gulp-sourcemaps'),
-	 del = require('del');
+	 del = require('del'),
+cleanCSS = require('gulp-clean-css');
 
 	 
 
@@ -15,6 +16,15 @@ gulp.task('compileSass', function(){
 		.pipe(maps.init())
 		.pipe(sass())
 		.pipe(maps.write('./'))
+		.pipe(gulp.dest('css'));
+});
+
+gulp.task('minifyCss', ["compileSass"], function() {
+	return gulp.src("css/application.css")
+		.pipe(maps.init())
+		.pipe(cleanCSS({compatibility: 'ie8'}))
+		.pipe(maps.write('./'))
+		.pipe(rename('app.min.css'))
 		.pipe(gulp.dest('css'));
 });
 
@@ -43,9 +53,8 @@ gulp.task('clean', function() {
 	del(['dist', 'css/application.css*', 'js/app*.js*']);
 });
 
-gulp.task("build", ['minifyScripts', 'compileSass'], function() {
-	return gulp.src(["css/application**", "js/app.min.js",
-					"img/**", "fonts/**"], { base: './'})
+gulp.task("build", ['minifyScripts', 'minifyCss'], function() {
+	return gulp.src(["css/**", "js/app.min.js", "img/**"], { base: './'})
 			.pipe(gulp.dest('dist'));	
 });
 
